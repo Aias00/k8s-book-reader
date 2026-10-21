@@ -262,9 +262,10 @@ def main():
     meta = metadata()
     items = parse_chapters(chapters(meta))
     for directory in [SITE, BUILD]:
-        if directory.exists():
+        if directory == SITE and directory.exists():
             shutil.rmtree(directory)
-        directory.mkdir()
+        # Runtime commands and CI evidence may already exist in .build.
+        directory.mkdir(exist_ok=True)
     for folder in ['chapters', 'assets', 'downloads']:
         (SITE / folder).mkdir()
     for name in ['style.css', 'app.js', 'reader.css', 'reader.js']:
