@@ -19,6 +19,8 @@
 
 - 完整复验通过 PVC 相同 UID、Pod UID 改变且文件读回；CPU 请求过大与 nodeSelector 不匹配分别出现实际 Pending/Unschedulable 证据。
 
+公共完整流水线在 ConfigMap 滚动重启后的一次立即 HTTP 请求中遇到超时，说明控制面 Ready 与数据面可达的观察时点不同。自动化现使用有 60 秒上限的实际内容恢复检查，持续失败仍会超时；相关观察已补入第 6 章。
+
 ## 尚待验收
 
 公共源码、完整发布 CI、Pages、公网阅读与 Release 下载。

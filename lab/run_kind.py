@@ -63,6 +63,15 @@ def main():
         return kube('exec', 'netcheck', '--', 'wget', '-qO-', '-T', '5', 'http://' + service,
                     check=check, timeout=20)
 
+    def wait_http(text, service='hello-web'):
+        def matches():
+            try:
+                response = get_http(service, check=False)
+                return response.returncode == 0 and text in response.stdout
+            except subprocess.TimeoutExpired:
+                return False
+        wait_for('actual HTTP content converges: ' + service, matches, 60)
+
     try:
         current = subprocess.check_output(['kubectl', 'config', 'current-context'], text=True).strip()
         assert current == CONTEXT, f'Refusing context {current}'
@@ -87,9 +96,8 @@ def main():
         kube('wait', '--for=condition=Ready', 'pod/netcheck', '--timeout=150s')
         dns = kube('exec', 'netcheck', '--', 'nslookup', 'hello-web.k8s-book.svc.cluster.local').stdout
         assert 'hello-web.k8s-book.svc.cluster.local' in dns
-        welcome = get_http().stdout
-        assert '你好，Kubernetes！' in welcome
-        assert '你好，Kubernetes！' in get_http('hello-web.k8s-book.svc.cluster.local').stdout
+        wait_http('你好，Kubernetes！')
+        wait_http('你好，Kubernetes！', 'hello-web.k8s-book.svc.cluster.local')
         observations['dns'] = dns
         checks.append('Service DNS and actual in-cluster HTTP include ConfigMap Chinese page')
 
@@ -157,7 +165,8 @@ def main():
                     for state in item.get('status', {}).get('containerStatuses', [])
                     if state.get('state', {}).get('waiting', {}).get('reason') in {'ErrImagePull', 'ImagePullBackOff'}]
         observations['bad_image_reasons'] = wait_for('bad image pull failure', image_failure, 90)
-        assert len(endpoints('hello-web')) >= 2 and '你好，Kubernetes！' in get_http().stdout
+        assert len(endpoints('hello-web')) >= 2
+        wait_http('你好，Kubernetes！')
         kube('rollout', 'undo', 'deployment/hello-web')
         rollout()
         assert document('get', 'deployment', 'hello-web')['spec']['template']['spec']['containers'][0]['image'] == 'nginx:1.28'
@@ -167,14 +176,14 @@ def main():
              json.dumps({'data': {'index.html': '<h1>我完成了第一次配置更新</h1>'}}, ensure_ascii=False))
         kube('rollout', 'restart', 'deployment/hello-web')
         rollout()
-        assert '我完成了第一次配置更新' in get_http().stdout
+        wait_http('我完成了第一次配置更新')
         checks.append('ConfigMap change plus explicit rolling restart updates real HTTP content')
         kube('patch', 'service', 'hello-web', '--type=merge', '-p', json.dumps({'spec': {'selector': {'app': 'wrong-app'}}}))
         wait_for('wrong selector removes endpoints', lambda: not endpoints('hello-web'))
         wait_for('wrong selector breaks real HTTP', lambda: get_http(check=False).returncode != 0, 30)
         kube('apply', '-f', 'examples/project/service.yaml')
         wait_for('restored selector has endpoints', lambda: len(endpoints('hello-web')) == 2)
-        assert '我完成了第一次配置更新' in get_http().stdout
+        wait_http('我完成了第一次配置更新')
         checks.append('wrong Service selector breaks actual HTTP; restoring selector recovers traffic')
 
         kube('apply', '-f', 'examples/storage.yaml')

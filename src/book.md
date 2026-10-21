@@ -317,6 +317,8 @@ kubectl run netcheck -n k8s-book --rm -i --restart=Never \
 
 应该输出 NGINX 页面的 HTML。如果本次运行异常中断，临时 Pod 可能残留，可用 `kubectl delete pod netcheck -n k8s-book` 清理后重试。BusyBox 是用于此练习的小型工具镜像，不属于应用本身。
 
+状态显示就绪与一次真实请求成功是两项证据。刚滚动更新时，服务后端与节点转发规则可能还在传播；可在有限时间内重复只读 HTTP 检查，确认页面实际恢复。持续失败就继续排查后端、DNS 与网络，不应只看 Ready 就宣布整条路径成功。
+
 同一命名空间里的 Pod 通常可用 `hello-web` 访问该 Service。跨命名空间可用 `hello-web.k8s-book`。完整名称通常为 `hello-web.k8s-book.svc.cluster.local`，其中集群域名可由管理员配置，并非永远是 `cluster.local`。你的电脑一般不能直接解析这种集群内部名称。
 
 ## 常见访问方式
