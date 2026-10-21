@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-21",
+  "result": "PASS",
+  "body_chapters": 14,
+  "appendices": 3,
+  "reading_units": 18,
+  "source_yaml_files": 7,
+  "epubcheck": "5.4.0",
+  "epubcheck_errors": 0,
+  "epubcheck_warnings": 0,
+  "checks": [
+    "full source/EPUB/web/search/archive consistency",
+    "light default under dark OS",
+    "shared theme and tab sync",
+    "contents",
+    "search",
+    "font persistence",
+    "all 18 units at 320/390px",
+    "no-JS reading and pagination",
+    "storage denied",
+    "downloads",
+    "no JavaScript errors"
+  ],
+  "theme_files": {
+    "reader.css": "c7c4e48dc43b42b8c62926a880ae418665140786bdb947a0bc9f05836b337876",
+    "reader.js": "acdae91aa5f86d2d40437170b7fd261420711e332a297007b566ef4104230d2a"
+  }
+}

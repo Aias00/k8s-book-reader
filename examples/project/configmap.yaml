@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-page
+data:
+  index.html: |
+    <!doctype html>
+    <html lang="zh-CN">
+      <meta charset="utf-8">
+      <title>我的 Kubernetes 小站</title>
+      <h1>你好，Kubernetes！</h1>
+      <p>这是我通过 ConfigMap 提供的第一个网页。</p>
+    </html>

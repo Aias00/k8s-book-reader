@@ -1,0 +1,21 @@
+{
+  "title": "从零开始学 Kubernetes",
+  "subtitle": "从容器概念到可验证的本地应用部署",
+  "author": "Aias00",
+  "lang": "zh-CN",
+  "repository": "Aias00/k8s-book-reader",
+  "slug": "k8s-book-reader",
+  "version": "1.0.0",
+  "date": "2026-10-21",
+  "rights": "原创教学内容；外部资料版权归原作者。",
+  "description": "从 Pod、Deployment 和 Service 出发，在隔离 kind 集群中验证配置、健康检查、发布回滚、持久卷与调度故障，建立 Kubernetes 入门与排错方法。",
+  "site_url": "https://aias00.github.io/k8s-book-reader/",
+  "short_title": "从零开始学 Kubernetes",
+  "cover_lines": [
+    "从零开始学",
+    "Kubernetes"
+  ],
+  "cover_label": "CONTAINER ORCHESTRATION",
+  "cover_subtitle": "概念入门 · 真实集群 · 故障演练",
+  "include_code": false
+}

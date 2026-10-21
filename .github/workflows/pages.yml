@@ -1,0 +1,72 @@
+name: Validate real kind, build and publish Kubernetes book
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: k8s-book-pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: '3.12.1'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify real kind application and failure scenarios
+        run: sh lab/kind-ci.sh
+      - name: Build and verify all reading formats
+        run: |
+          sh build.sh
+          python3 tools/reader_verify.py
+          python3 tools/verify_book.py
+          sh tools/epubcheck.sh
+      - name: Install browser tools
+        run: |
+          npm install --no-save --package-lock=false playwright@1.64.1
+          npx playwright install --with-deps chromium
+      - name: Check mobile reading and interactions
+        run: |
+          python3 -m http.server 8798 --bind 127.0.0.1 --directory site > /tmp/k8s-book-http.log 2>&1 &
+          BOOK_URL=http://127.0.0.1:8798/ node tools/browser-check.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: k8s-book-downloads
+          path: site/downloads/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kind-runtime-evidence
+          path: |
+            research/runtime-validation.json
+            .build/kind-commands.log
+            .build/kind-summary.txt
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deploy

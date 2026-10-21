@@ -1,0 +1,11 @@
+.DS_Store
+/tools/epubcheck.zip
+/tools/epubcheck-*/
+
+.tools/
+.build/
+.publication/
+site/
+node_modules/
+__pycache__/
+*.pyc

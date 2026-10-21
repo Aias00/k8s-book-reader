@@ -1,0 +1,110 @@
+[
+  {
+    "url": "https://kubernetes.io/docs/concepts/overview/components/",
+    "title": "Kubernetes Components | Kubernetes",
+    "bytes": 500967,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+    "title": "Learn Kubernetes Basics | Kubernetes",
+    "bytes": 504624,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/tasks/tools/install-kubectl/",
+    "title": "Install Tools | Kubernetes",
+    "bytes": 499980,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/tasks/tools/",
+    "title": "Install Tools | Kubernetes",
+    "bytes": 499980,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+    "title": "Deployments | Kubernetes",
+    "bytes": 594666,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/services-networking/service/",
+    "title": "Service | Kubernetes",
+    "bytes": 592884,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/configuration/configmap/",
+    "title": "ConfigMaps | Kubernetes",
+    "bytes": 538645,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/configuration/secret/",
+    "title": "Secrets | Kubernetes",
+    "bytes": 572225,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/",
+    "title": "Configure Liveness, Readiness and Startup Probes | Kubernetes",
+    "bytes": 554434,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+    "title": "Resource Management for Pods and Containers | Kubernetes",
+    "bytes": 563318,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+    "title": "Persistent Volumes | Kubernetes",
+    "bytes": 605695,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/",
+    "title": "Role Based Access Control Good Practices | Kubernetes",
+    "bytes": 514330,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/tasks/debug/debug-application/",
+    "title": "Troubleshooting Applications | Kubernetes",
+    "bytes": 498282,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/services-networking/ingress/",
+    "title": "Ingress | Kubernetes",
+    "bytes": 587902,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/setup/release/version-skew-policy/",
+    "title": "Version Skew Policy | Kubernetes",
+    "bytes": 58043,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kubernetes.io/docs/concepts/overview/",
+    "title": "Overview | Kubernetes",
+    "bytes": 506362,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://kind.sigs.k8s.io/docs/user/quick-start/",
+    "title": "kind – Quick Start",
+    "bytes": 50732,
+    "retrieved": "2026-10-20"
+  },
+  {
+    "url": "https://docs.docker.com/get-started/get-docker/",
+    "title": "Get Docker | Docker Docs",
+    "bytes": 197914,
+    "retrieved": "2026-10-20"
+  }
+]
