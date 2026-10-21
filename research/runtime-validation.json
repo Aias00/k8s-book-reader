@@ -43,7 +43,7 @@
         "platform": "linux/amd64"
       }
     },
-    "dns": "Server:\t\t10.96.0.10\nAddress:\t10.96.0.10:53\n\nName:\thello-web.k8s-book.svc.cluster.local\nAddress: 10.96.110.151\n\n\n",
+    "dns": "Server:\t\t10.96.0.10\nAddress:\t10.96.0.10:53\n\n\nName:\thello-web.k8s-book.svc.cluster.local\nAddress: 10.96.66.31\n\n",
     "bad_image_reasons": [
       "ErrImagePull"
     ],
@@ -77,7 +77,7 @@
     "examples/project/service.yaml": "06ea2e0a1b5595ed7fc6891cd704864a2bbc9f1a0c8caba5f9d346f4fbe2ce46",
     "examples/storage.yaml": "7c8efd69347fd68e56becd4644d97be5480da95976bc354b1485a31d6e8ab4d1"
   },
-  "test_sha256": "927bc3a5767b2a1a81b915d1b409790c4b501ee75a54bb9abc509bf32b75085d",
+  "test_sha256": "d2e1979b7493d57b42ca451621888f570a48a07b6efffe2eeada5877377076d1",
   "untested": [
     "multi-node failover",
     "node/cluster deletion storage recovery",

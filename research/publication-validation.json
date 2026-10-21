@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-21",
+  "result": "PASS",
+  "published_commit": "63c7ddcbddc95df0893c1a020374bbb7902b4a9b",
+  "workflow_run": "https://github.com/Aias00/k8s-book-reader/actions/runs/39578414258",
+  "build_job_id": 119149642109,
+  "deploy_job_id": 119151326179,
+  "workflow_conclusion": "success",
+  "online": "https://aias00.github.io/k8s-book-reader/",
+  "release": "https://github.com/Aias00/k8s-book-reader/releases/tag/v1.0.0",
+  "real_kind_checks": [
+    "all seven source YAML files applied to real API (storage applied later)",
+    "Service DNS and actual in-cluster HTTP include ConfigMap Chinese page",
+    "host port-forward actual HTTP (not a load-balancing assertion)",
+    "Deployment replacement UID, scale to three, declarative restore to two",
+    "HTTP readiness failure removes endpoint without restart; HTTP liveness failure increases restartCount",
+    "bad image rollout fails while old endpoints serve; rollback restores original image and two ready endpoints",
+    "ConfigMap change plus explicit rolling restart updates real HTTP content",
+    "wrong Service selector breaks actual HTTP; restoring selector recovers traffic",
+    "PVC identity and file survive Pod replacement on the same kind node (not node-loss recovery)",
+    "oversized CPU request and unmatched node selector stay Pending with actual Unschedulable evidence"
+  ],
+  "manifest_sha256": {
+    "examples/deployment-basic.yaml": "c7d6e982910a2881677d934bcbedc623cfaef6f56d18a579f0a3cc40749f5be1",
+    "examples/pod.yaml": "f34c5c99a1b20e5112c0265b6f3a139a1c368588a119af9f8dbde2e311a3b184",
+    "examples/project/configmap.yaml": "db04fe22fd1bddeae12e5a90a72e7235b081b6e2dec818400247995903ad126c",
+    "examples/project/deployment.yaml": "4d2d1d75423d31d69e10c21fb228c96004c55915e8d9b717a3650e31866a54ad",
+    "examples/project/namespace.yaml": "216e05fcf89298b1aadc0444995757c5b1b7279e16a4beb592e9c40cc3417a83",
+    "examples/project/service.yaml": "06ea2e0a1b5595ed7fc6891cd704864a2bbc9f1a0c8caba5f9d346f4fbe2ce46",
+    "examples/storage.yaml": "7c8efd69347fd68e56becd4644d97be5480da95976bc354b1485a31d6e8ab4d1"
+  },
+  "test_sha256": "d2e1979b7493d57b42ca451621888f570a48a07b6efffe2eeada5877377076d1",
+  "runtime_command_log_bytes": 302547,
+  "browser_online_checks": "18 units at 320/390px, theme, contents, search, size, no-JS and downloads passed",
+  "downloads": [
+    {
+      "kind": "pages",
+      "url": "https://aias00.github.io/k8s-book-reader/downloads/k8s-book-reader.epub",
+      "bytes": 65610,
+      "sha256": "9da558f7457de99a426e7e9ccb22aef58fedcb25cbec6e7aaab63a28b81c2055",
+      "epub_mimetype_valid": true
+    },
+    {
+      "kind": "release",
+      "url": "https://github.com/Aias00/k8s-book-reader/releases/download/v1.0.0/k8s-book-reader.epub",
+      "bytes": 65610,
+      "sha256": "9da558f7457de99a426e7e9ccb22aef58fedcb25cbec6e7aaab63a28b81c2055",
+      "epub_mimetype_valid": true
+    }
+  ],
+  "private_authoring_repository_visibility": "private"
+}
